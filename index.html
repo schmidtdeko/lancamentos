@@ -644,6 +644,14 @@
 
   var MES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 
+  /* O CDN do GitHub Pages ignora o cabecalho no-cache e serve versao de ate
+     ~10 min atras — foi o que fez a pagina parecer travada depois de rodar a
+     coleta. Uma query que muda a cada minuto forca a busca sem matar o cache
+     de quem recarrega em seguida. */
+  function semCache(arquivo) {
+    return arquivo + '?cb=' + Math.floor(Date.now() / 60000);
+  }
+
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -1050,7 +1058,7 @@
   function mostrarFrescor() {
     var alvo = document.getElementById('frescor');
     if (!alvo) return;
-    fetch('status.json', { cache: 'no-cache' })
+    fetch(semCache('status.json'))
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (s) {
         if (!s || !s.atualizado_em) return;
@@ -1083,7 +1091,7 @@
 
   skeleton();
 
-  fetch('vitrine.json', { cache: 'no-cache' })
+  fetch(semCache('vitrine.json'))
     .then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
