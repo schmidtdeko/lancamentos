@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estado da Vitrine Local</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0c; --surface:#121218; --line:rgba(255,255,255,.10);
+    --text:#f4f4f7; --muted:#9a9aa6; --faint:#6e6e7a;
+    --ok:#3ddc84; --alerta:#ffb020; --ruim:#ff4d5e;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font-family:'Archivo',system-ui,'Segoe UI',sans-serif;font-size:15px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:36px 20px 80px}
+  a{color:inherit}
+  h1{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin:0}
+  h2{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:34px 0 12px}
+  p{margin:0}
+
+  header{display:flex;flex-direction:column;gap:6px;margin-bottom:28px}
+  header p{color:var(--muted);font-size:13.5px}
+  header a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+
+  /* veredito: o unico bloco que grita */
+  .veredito{
+    display:flex;align-items:flex-start;gap:16px;
+    border:1px solid var(--line);border-left:4px solid var(--faint);
+    background:var(--surface);padding:22px 24px;
+  }
+  .veredito.ok{border-left-color:var(--ok)}
+  .veredito.alerta{border-left-color:var(--alerta)}
+  .veredito.ruim{border-left-color:var(--ruim)}
+  .bolha{width:12px;height:12px;border-radius:50%;background:var(--faint);flex:0 0 auto;margin-top:8px}
+  .veredito.ok .bolha{background:var(--ok);box-shadow:0 0 0 5px rgba(61,220,132,.15)}
+  .veredito.alerta .bolha{background:var(--alerta);box-shadow:0 0 0 5px rgba(255,176,32,.15)}
+  .veredito.ruim .bolha{background:var(--ruim);box-shadow:0 0 0 5px rgba(255,77,94,.15)}
+  .veredito b{display:block;font-size:1.22rem;font-weight:900;letter-spacing:-.02em;line-height:1.25}
+  .veredito span{color:var(--muted);font-size:13.5px}
+
+  .numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:20px}
+  .numeros div{background:var(--surface);padding:15px 17px}
+  .numeros b{display:block;font-family:var(--mono);font-size:1.5rem;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.2}
+  .numeros i{font-style:normal;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+
+  .lista{border:1px solid var(--line);background:var(--surface)}
+  .lista > *{padding:12px 17px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:baseline}
+  .lista > *:last-child{border-bottom:none}
+  .lista .quando{font-family:var(--mono);font-size:11.5px;color:var(--faint);white-space:nowrap;flex:0 0 auto}
+  .lista .oque{min-width:0;word-break:break-word}
+  .lista .oque em{font-style:normal;color:var(--muted)}
+  .tag{
+    font-family:var(--mono);font-size:10px;padding:1px 6px;border:1px solid currentColor;
+    flex:0 0 auto;text-transform:uppercase;letter-spacing:.06em;
+  }
+  .tag.novo{color:var(--ok)}
+  .tag.falha{color:var(--ruim)}
+  .vazio{color:var(--faint);font-size:13.5px;padding:16px 17px;border:1px dashed var(--line)}
+
+  .rolagem{overflow-x:auto;border:1px solid var(--line)}
+  table{width:100%;border-collapse:collapse;font-size:13px;min-width:32rem;background:var(--surface)}
+  th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+  tbody tr:last-child td{border-bottom:none}
+  td a{color:var(--muted)}
+  .cresceu{color:var(--ok)}
+  .caiu{color:var(--ruim)}
+
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);color:var(--faint);font-size:12.5px}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Estado da Vitrine Local</h1>
+    <p>
+      Página de consulta, não faz parte da vitrine.
+      <a href="./">Voltar pra vitrine</a> ·
+      <a href="https://github.com/schmidtdeko/lancamentos/actions/workflows/monitor.yml" target="_blank" rel="noopener">Ver as execuções no GitHub</a>
+    </p>
+  </header>
+
+  <div class="veredito" id="veredito">
+    <span class="bolha"></span>
+    <div>
+      <b id="veredito-titulo">Carregando…</b>
+      <span id="veredito-detalhe"></span>
+    </div>
+  </div>
+
+  <div class="numeros" id="numeros"></div>
+
+  <h2>Perfis que não entraram na última varredura</h2>
+  <div id="falhas"></div>
+
+  <h2>Novidades da última varredura</h2>
+  <div id="novidades"></div>
+
+  <h2>Histórico das varreduras</h2>
+  <div class="rolagem" id="historico"></div>
+
+  <footer>
+    A varredura roda uma vez por dia. O GitHub costuma atrasar o horário agendado,
+    então oscilar algumas horas é normal. Se esta página acusar mais de dois dias
+    sem varredura, o problema é real.
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // Cron diário. Até 36h é folga normal do agendador do GitHub; passando de
+  // 72h a coleta parou de rodar e ninguém foi avisado.
+  var HORAS_ALERTA = 36;
+  var HORAS_RUIM = 72;
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function haQuanto(ms) {
+    var min = Math.round(ms / 60000);
+    if (min < 2) return 'agora';
+    if (min < 60) return 'há ' + min + ' min';
+    if (min < 120) return 'há 1 hora';
+    if (min < 1440) return 'há ' + Math.floor(min / 60) + ' horas';
+    if (min < 2880) return 'ontem';
+    return 'há ' + Math.floor(min / 1440) + ' dias';
+  }
+
+  function curta(iso) {
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return iso || '—';
+    return d.toLocaleString('pt-BR', {
+      day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'
+    });
+  }
+
+  function pintar(classe, titulo, detalhe) {
+    var box = document.getElementById('veredito');
+    box.className = 'veredito ' + classe;
+    document.getElementById('veredito-titulo').textContent = titulo;
+    document.getElementById('veredito-detalhe').textContent = detalhe;
+  }
+
+  function numeros(s, horas) {
+    var dados = [
+      [s.faixas, 'faixas'],
+      [s.artistas, 'artistas'],
+      [s.perfis_consultados, 'perfis lidos'],
+      [(s.perfis_com_falha || []).length, 'falhas'],
+      [horas === null ? '—' : (horas < 1 ? '<1h' : Math.round(horas) + 'h'), 'desde a varredura']
+    ];
+    document.getElementById('numeros').innerHTML = dados.map(function (d) {
+      return '<div><b>' + esc(d[0]) + '</b><i>' + esc(d[1]) + '</i></div>';
+    }).join('');
+  }
+
+  function falhas(s) {
+    var lista = s.perfis_com_falha || [];
+    var alvo = document.getElementById('falhas');
+    if (!lista.length) {
+      alvo.className = 'vazio';
+      alvo.textContent = 'Nenhuma. Todos os perfis responderam.';
+      return;
+    }
+    alvo.className = 'lista';
+    alvo.innerHTML = lista.map(function (u) {
+      return '<div><span class="tag falha">falhou</span>' +
+        '<span class="oque"><a href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(u) + '</a>' +
+        '<br><em>Link errado no formulário, perfil renomeado ou conta apagada.</em></span></div>';
+    }).join('');
+  }
+
+  function novidades(s) {
+    var alvo = document.getElementById('novidades');
+    var itens = [];
+
+    (s.novos_artistas || []).forEach(function (n) {
+      itens.push('<div><span class="tag novo">artista</span><span class="oque"><b>' +
+        esc(n) + '</b> entrou na vitrine</span></div>');
+    });
+
+    (s.novas_faixas || []).forEach(function (f) {
+      itens.push('<div><span class="tag novo">faixa</span><span class="oque">' +
+        '<a href="' + esc(f.url) + '" target="_blank" rel="noopener">' + esc(f.titulo) + '</a>' +
+        ' <em>— ' + esc(f.artista) + '</em></span></div>');
+    });
+
+    if (!itens.length) {
+      alvo.className = 'vazio';
+      alvo.textContent = 'Nada novo na última varredura. Isso é normal: nem todo dia alguém lança.';
+      return;
+    }
+    alvo.className = 'lista';
+    alvo.innerHTML = itens.join('');
+  }
+
+  function historico(lista) {
+    var alvo = document.getElementById('historico');
+    if (!lista || !lista.length) {
+      alvo.className = 'vazio';
+      alvo.textContent = 'Sem histórico ainda. A primeira linha aparece na próxima varredura com novidade.';
+      return;
+    }
+    var linhas = lista.map(function (h, i) {
+      var anterior = lista[i + 1];
+      var delta = '';
+      if (anterior && typeof anterior.faixas === 'number') {
+        var d = h.faixas - anterior.faixas;
+        if (d > 0) delta = ' <span class="cresceu">+' + d + '</span>';
+        else if (d < 0) delta = ' <span class="caiu">' + d + '</span>';
+      }
+      var quem = (h.novos_artistas || []).length
+        ? esc(h.novos_artistas.join(', '))
+        : (h.novas_faixas ? h.novas_faixas + ' faixas' : '—');
+      return '<tr>' +
+        '<td>' + esc(curta(h.em)) + '</td>' +
+        '<td class="n">' + esc(h.faixas) + delta + '</td>' +
+        '<td class="n">' + esc(h.artistas) + '</td>' +
+        '<td class="n">' + (h.falhas ? '<span class="caiu">' + esc(h.falhas) + '</span>' : '0') + '</td>' +
+        '<td>' + quem + '</td>' +
+        '<td>' + (h.execucao ? '<a href="' + esc(h.execucao) + '" target="_blank" rel="noopener">log</a>' : '—') + '</td>' +
+        '</tr>';
+    }).join('');
+
+    alvo.innerHTML = '<table><thead><tr>' +
+      '<th>Varredura</th><th>Faixas</th><th>Artistas</th><th>Falhas</th><th>Novidade</th><th>Execução</th>' +
+      '</tr></thead><tbody>' + linhas + '</tbody></table>';
+  }
+
+  Promise.all([
+    fetch('status.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }),
+    fetch('historico.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; })
+  ]).then(function (res) {
+    var s = res[0], hist = res[1];
+
+    if (!s || !s.atualizado_em) {
+      pintar('ruim', 'Não consegui ler o status',
+        'O status.json não respondeu. Se o site acabou de subir, espere o deploy. Se não, a coleta parou antes de gravar.');
+      return;
+    }
+
+    var quando = new Date(s.atualizado_em);
+    var idade = Date.now() - quando.getTime();
+    var horas = idade / 3600000;
+    var nFalhas = (s.perfis_com_falha || []).length;
+
+    if (horas > HORAS_RUIM) {
+      pintar('ruim', 'A coleta parou',
+        'Última varredura ' + haQuanto(idade) + ' (' + curta(s.atualizado_em) + '). ' +
+        'Passou de ' + HORAS_RUIM + 'h: veja as execuções no GitHub. ' +
+        'Fluxo agendado em repositório público é desativado após 60 dias sem atividade.');
+    } else if (horas > HORAS_ALERTA) {
+      pintar('alerta', 'Varredura atrasada',
+        'Última ' + haQuanto(idade) + '. O agendador do GitHub atrasa, mas se passar de ' +
+        HORAS_RUIM + 'h vale investigar.');
+    } else if (nFalhas) {
+      pintar('alerta', 'Rodando, com ' + nFalhas + (nFalhas > 1 ? ' perfis fora' : ' perfil fora'),
+        'Varrida ' + haQuanto(idade) + '. A vitrine está no ar; os perfis abaixo não entraram.');
+    } else {
+      pintar('ok', 'Tudo em ordem',
+        'Varrida ' + haQuanto(idade) + ' (' + curta(s.atualizado_em) + '). ' +
+        s.faixas + ' faixas de ' + s.artistas + ' artistas, nenhuma falha.');
+    }
+
+    numeros(s, horas);
+    falhas(s);
+    novidades(s);
+    historico(hist);
+
+    if (s.execucao) {
+      var d = document.getElementById('veredito-detalhe');
+      d.insertAdjacentHTML('beforeend',
+        ' <a href="' + esc(s.execucao) + '" target="_blank" rel="noopener" style="color:var(--muted)">Ver o log desta varredura.</a>');
+    }
+  }).catch(function (e) {
+    pintar('ruim', 'Falha ao carregar esta página', String(e));
+  });
+})();
+</script>
+</body>
+</html>
