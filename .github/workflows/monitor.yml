@@ -31,7 +31,7 @@ jobs:
           # Tudo o que o gerador escreve precisa entrar aqui, senao o trabalho
           # dele morre no runner: o index.html recebe o roster e o indice
           # injetados, e o status.json carrega a hora da varredura.
-          git add vitrine.json status.json index.html robots.txt sitemap.xml
+          git add vitrine.json status.json historico.json index.html robots.txt sitemap.xml
 
           # "Nada mudou" e sucesso legitimo (ninguem lancou faixa nova hoje) e
           # nao pode ser confundido com falha. Antes isso era um `|| exit 0`
