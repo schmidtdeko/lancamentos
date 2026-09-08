@@ -173,7 +173,7 @@
       [s.faixas, 'faixas'],
       [s.artistas, 'artistas'],
       [s.perfis_consultados, 'perfis lidos'],
-      [(s.perfis_com_falha || []).length, 'falhas'],
+      [quantasFalhas(s), 'falhas'],
       [horas === null ? '—' : (horas < 1 ? '<1h' : Math.round(horas) + 'h'), 'desde a varredura']
     ];
     document.getElementById('numeros').innerHTML = dados.map(function (d) {
@@ -181,20 +181,37 @@
     }).join('');
   }
 
+  /* Aceita numero (formato atual) ou lista (status.json antigo, ainda em
+     cache do CDN por alguns minutos depois de um deploy). */
+  function quantasFalhas(s) {
+    var v = s.perfis_com_falha;
+    if (typeof v === 'number') return v;
+    return (v || []).length;
+  }
+
   function falhas(s) {
-    var lista = s.perfis_com_falha || [];
+    var n = quantasFalhas(s);
     var alvo = document.getElementById('falhas');
-    if (!lista.length) {
+
+    if (!n) {
       alvo.className = 'vazio';
       alvo.textContent = 'Nenhuma. Todos os perfis responderam.';
       return;
     }
+
+    /* Só a contagem: esta página é pública, e exibir o link de quem falhou
+       colocaria o perfil da pessoa num mural aberto ao lado de "falhou".
+       Qual perfil foi fica no log da varredura. */
     alvo.className = 'lista';
-    alvo.innerHTML = lista.map(function (u) {
-      return '<div><span class="tag falha">falhou</span>' +
-        '<span class="oque"><a href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(u) + '</a>' +
-        '<br><em>Link errado no formulário, perfil renomeado ou conta apagada.</em></span></div>';
-    }).join('');
+    alvo.innerHTML = '<div><span class="tag falha">' + n + (n > 1 ? ' fora' : ' fora') + '</span>' +
+      '<span class="oque">' +
+        (n > 1 ? n + ' perfis não entraram' : 'Um perfil não entrou') +
+        ' nesta varredura. Causa provável: link errado no formulário, perfil renomeado ou conta apagada.' +
+        '<br><em>' +
+        (s.execucao
+          ? 'Qual perfil foi está no <a href="' + esc(s.execucao) + '" target="_blank" rel="noopener">log desta varredura</a>.'
+          : 'Qual perfil foi está no log da varredura, no GitHub Actions.') +
+        '</em></span></div>';
   }
 
   function novidades(s) {
@@ -270,7 +287,7 @@
     var quando = new Date(s.atualizado_em);
     var idade = Date.now() - quando.getTime();
     var horas = idade / 3600000;
-    var nFalhas = (s.perfis_com_falha || []).length;
+    var nFalhas = quantasFalhas(s);
 
     if (horas > HORAS_RUIM) {
       pintar('ruim', 'A coleta parou',
