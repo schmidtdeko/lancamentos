@@ -218,7 +218,11 @@ def gravar_status(vitrine, por_artista, perfis, falhas, novas_faixas, novos_arti
         "faixas": len(vitrine),
         "artistas": len(por_artista),
         "perfis_consultados": len(perfis),
-        "perfis_com_falha": falhas,
+        # So a CONTAGEM, de proposito. O status.json e servido publicamente:
+        # publicar o link de quem falhou expunha o perfil da pessoa numa
+        # pagina aberta ao lado de "falhou". O link fica no log do Actions,
+        # que e onde o mantenedor vai olhar de qualquer forma.
+        "perfis_com_falha": len(falhas),
         "faixas_por_artista": FAIXAS_POR_ARTISTA,
         "novos_artistas": sorted(novos_artistas),
         "novas_faixas": [
