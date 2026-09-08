@@ -129,6 +129,14 @@
   var HORAS_ALERTA = 36;
   var HORAS_RUIM = 72;
 
+  /* O CDN do GitHub Pages ignora o cabecalho no-cache e serve versao de ate
+     ~10 min atras — foi o que fez a pagina parecer travada depois de rodar a
+     coleta. Uma query que muda a cada minuto forca a busca sem matar o cache
+     de quem recarrega em seguida. */
+  function semCache(arquivo) {
+    return arquivo + '?cb=' + Math.floor(Date.now() / 60000);
+  }
+
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -247,8 +255,8 @@
   }
 
   Promise.all([
-    fetch('status.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }),
-    fetch('historico.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; })
+    fetch(semCache('status.json')).then(function (r) { return r.ok ? r.json() : null; }),
+    fetch(semCache('historico.json')).then(function (r) { return r.ok ? r.json() : null; })
       .catch(function () { return null; })
   ]).then(function (res) {
     var s = res[0], hist = res[1];
