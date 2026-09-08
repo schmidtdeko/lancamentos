@@ -1,10 +1,11 @@
 {
-  "atualizado_em": "2026-09-07T17:05:16Z",
+  "atualizado_em": "2026-09-08T12:47:54Z",
   "faixas": 51,
   "artistas": 12,
-  "perfis_consultados": 13,
-  "perfis_com_falha": [
-    "https://on.soundcloud.com/wykSWW6fnk6atlFCT0"
-  ],
-  "faixas_por_artista": 5
+  "perfis_consultados": 12,
+  "perfis_com_falha": [],
+  "faixas_por_artista": 5,
+  "novos_artistas": [],
+  "novas_faixas": [],
+  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/34228097601"
 }
