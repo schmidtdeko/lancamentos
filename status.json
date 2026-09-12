@@ -1,17 +1,11 @@
 {
-  "atualizado_em": "2026-09-11T15:43:53Z",
+  "atualizado_em": "2026-09-12T14:51:59Z",
   "faixas": 51,
   "artistas": 12,
   "perfis_consultados": 12,
   "perfis_com_falha": 0,
   "faixas_por_artista": 5,
   "novos_artistas": [],
-  "novas_faixas": [
-    {
-      "artista": "b0n",
-      "titulo": "b0n - Disconnect Now",
-      "url": "https://soundcloud.com/b0nmusiq/b0n-disconnect-now"
-    }
-  ],
-  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/34617830514"
+  "novas_faixas": [],
+  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/34700512812"
 }
