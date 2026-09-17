@@ -1,9 +1,20 @@
 [
   {
+    "artista": "DK",
+    "avatar": "https://i1.sndcdn.com/avatars-RifGBMOCovdSY2x5-AJNnMA-large.jpg",
+    "perfil": "https://soundcloud.com/dksoundresearch",
+    "titulo": "DK - Fixing good",
+    "url": "https://soundcloud.com/dksoundresearch/dk-fixing-good",
+    "capa": "https://i1.sndcdn.com/artworks-hSe7WMydOF1jyQCc-Lbqs6w-large.jpg",
+    "data": "2026-09-17",
+    "duracao": 252419,
+    "genero": "Techno"
+  },
+  {
     "artista": "b0n",
     "avatar": "https://i1.sndcdn.com/avatars-000303872201-sz7sxd-large.jpg",
     "perfil": "https://soundcloud.com/b0nmusiq",
-    "titulo": "b0n - Disconnect Now",
+    "titulo": "b0n - Disconnect Now [EOM-03]",
     "url": "https://soundcloud.com/b0nmusiq/b0n-disconnect-now",
     "capa": "https://i1.sndcdn.com/artworks-mP3FWAVNdLJNy62h-avuzMQ-large.jpg",
     "data": "2026-09-09",
@@ -229,17 +240,6 @@
     "data": "2026-03-21",
     "duracao": 7091171,
     "genero": "Minimal / Deep Tech"
-  },
-  {
-    "artista": "DK",
-    "avatar": "https://i1.sndcdn.com/avatars-RifGBMOCovdSY2x5-AJNnMA-large.jpg",
-    "perfil": "https://soundcloud.com/dksoundresearch",
-    "titulo": "DK - Meta Evasion",
-    "url": "https://soundcloud.com/dksoundresearch/meta-evasion",
-    "capa": "https://i1.sndcdn.com/artworks-tXzCUq5HP1BkbZ3p-uwHNjg-large.png",
-    "data": "2026-02-19",
-    "duracao": 355046,
-    "genero": "Techno"
   },
   {
     "artista": "DJ SCHURE",
