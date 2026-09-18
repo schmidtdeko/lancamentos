@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "2026-09-17T16:04:36Z",
+  "atualizado_em": "2026-09-18T15:40:30Z",
   "faixas": 51,
   "artistas": 12,
   "perfis_consultados": 12,
@@ -8,10 +8,10 @@
   "novos_artistas": [],
   "novas_faixas": [
     {
-      "artista": "DK",
-      "titulo": "DK - Fixing good",
-      "url": "https://soundcloud.com/dksoundresearch/dk-fixing-good"
+      "artista": "Leonardo Morini",
+      "titulo": "Get It (Original Mix) (FREE DOWNLOAD)",
+      "url": "https://soundcloud.com/leomorini/get-it"
     }
   ],
-  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/35244285269"
+  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/35363827089"
 }

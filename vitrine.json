@@ -1,5 +1,16 @@
 [
   {
+    "artista": "Leonardo Morini",
+    "avatar": "https://i1.sndcdn.com/avatars-68Vk3CcurqUYRbQP-UzMIvg-large.jpg",
+    "perfil": "https://soundcloud.com/leomorini",
+    "titulo": "Get It (Original Mix) (FREE DOWNLOAD)",
+    "url": "https://soundcloud.com/leomorini/get-it",
+    "capa": "https://i1.sndcdn.com/artworks-zGOEOfvcF63ZzMzv-kKXMUg-large.jpg",
+    "data": "2026-09-18",
+    "duracao": 420160,
+    "genero": "Minimal Deep-Tech"
+  },
+  {
     "artista": "DK",
     "avatar": "https://i1.sndcdn.com/avatars-RifGBMOCovdSY2x5-AJNnMA-large.jpg",
     "perfil": "https://soundcloud.com/dksoundresearch",
@@ -394,17 +405,6 @@
     "data": "2025-11-17",
     "duracao": 3706517,
     "genero": "Progressive House"
-  },
-  {
-    "artista": "Leonardo Morini",
-    "avatar": "https://i1.sndcdn.com/avatars-68Vk3CcurqUYRbQP-UzMIvg-large.jpg",
-    "perfil": "https://soundcloud.com/leomorini",
-    "titulo": "Music Talk (FREE DOWNLOAD)",
-    "url": "https://soundcloud.com/leomorini/music-talk",
-    "capa": "https://i1.sndcdn.com/artworks-Ez0EJmACNzEdjTLp-sBHZdA-large.png",
-    "data": "2025-11-05",
-    "duracao": 273796,
-    "genero": "House"
   },
   {
     "artista": "MSR",
