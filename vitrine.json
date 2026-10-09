@@ -1,5 +1,16 @@
 [
   {
+    "artista": "DK",
+    "avatar": "https://i1.sndcdn.com/avatars-RifGBMOCovdSY2x5-AJNnMA-large.jpg",
+    "perfil": "https://soundcloud.com/dksoundresearch",
+    "titulo": "Oktober Tech Blumenau",
+    "url": "https://soundcloud.com/dksoundresearch/oktober-tech-blumenau",
+    "capa": "https://i1.sndcdn.com/artworks-yteZ6ku5IqPzIsFO-5vZrzA-large.jpg",
+    "data": "2026-10-09",
+    "duracao": 279179,
+    "genero": "Electronic"
+  },
+  {
     "artista": "Leonardo Morini",
     "avatar": "https://i1.sndcdn.com/avatars-68Vk3CcurqUYRbQP-UzMIvg-large.jpg",
     "perfil": "https://soundcloud.com/leomorini",
@@ -97,17 +108,6 @@
     "data": "2026-06-25",
     "duracao": 221099,
     "genero": "Reggae"
-  },
-  {
-    "artista": "DK",
-    "avatar": "https://i1.sndcdn.com/avatars-RifGBMOCovdSY2x5-AJNnMA-large.jpg",
-    "perfil": "https://soundcloud.com/dksoundresearch",
-    "titulo": "DK - Silicon Bayou",
-    "url": "https://soundcloud.com/dksoundresearch/dk-silicon-bayou",
-    "capa": "https://i1.sndcdn.com/artworks-nYwNLOa3LCBtdT6p-3GWhbA-large.png",
-    "data": "2026-06-23",
-    "duracao": 287046,
-    "genero": "Jazz & Blues"
   },
   {
     "artista": "Crunchy",
