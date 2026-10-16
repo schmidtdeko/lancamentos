@@ -1,27 +1,11 @@
 {
-  "atualizado_em": "2026-10-15T16:09:52Z",
+  "atualizado_em": "2026-10-16T15:56:46Z",
   "faixas": 50,
   "artistas": 11,
   "perfis_consultados": 12,
   "perfis_com_falha": 0,
   "faixas_por_artista": 5,
   "novos_artistas": [],
-  "novas_faixas": [
-    {
-      "artista": "DK",
-      "titulo": "DK - ZERO BUILD - Sped Up",
-      "url": "https://soundcloud.com/dksoundresearch/dk-zero-build-sped-up"
-    },
-    {
-      "artista": "DK",
-      "titulo": "DK - FLOPPY DRIVE",
-      "url": "https://soundcloud.com/dksoundresearch/dk-floppy-drive"
-    },
-    {
-      "artista": "DK",
-      "titulo": "DK - NOTIPHONKATION",
-      "url": "https://soundcloud.com/dksoundresearch/dk-notiphonkation"
-    }
-  ],
-  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/38766602229"
+  "novas_faixas": [],
+  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/38927976852"
 }
