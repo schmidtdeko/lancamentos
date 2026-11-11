@@ -1,19 +1,11 @@
 {
-  "atualizado_em": "2026-11-10T19:13:33Z",
+  "atualizado_em": "2026-11-11T19:09:23Z",
   "faixas": 48,
   "artistas": 12,
   "perfis_consultados": 12,
   "perfis_com_falha": 0,
   "faixas_por_artista": 5,
-  "novos_artistas": [
-    "Crunchy"
-  ],
-  "novas_faixas": [
-    {
-      "artista": "Crunchy",
-      "titulo": "Crunchy - B-Day - Milbratz",
-      "url": "https://soundcloud.com/renan-rebou-as/crunchy-b-day-milbratz"
-    }
-  ],
-  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/42883058477"
+  "novos_artistas": [],
+  "novas_faixas": [],
+  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/43084479563"
 }
