@@ -1,11 +1,17 @@
 {
-  "atualizado_em": "2026-11-13T19:05:33Z",
+  "atualizado_em": "2026-11-14T17:35:08Z",
   "faixas": 48,
   "artistas": 12,
   "perfis_consultados": 12,
   "perfis_com_falha": 0,
   "faixas_por_artista": 5,
   "novos_artistas": [],
-  "novas_faixas": [],
-  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/43488830423"
+  "novas_faixas": [
+    {
+      "artista": "Zoher",
+      "titulo": "Zoher - Keep on Moving",
+      "url": "https://soundcloud.com/zohermusic/zoher-keep-on-moving"
+    }
+  ],
+  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/43621873026"
 }
