@@ -1,5 +1,14 @@
 [
   {
+    "em": "2026-11-22T18:57:00Z",
+    "faixas": 44,
+    "artistas": 12,
+    "falhas": 0,
+    "novas_faixas": 0,
+    "novos_artistas": [],
+    "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/45057896024"
+  },
+  {
     "em": "2026-11-14T17:35:08Z",
     "faixas": 48,
     "artistas": 12,

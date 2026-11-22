@@ -1,11 +1,11 @@
 {
-  "atualizado_em": "2026-11-21T18:36:20Z",
-  "faixas": 48,
+  "atualizado_em": "2026-11-22T18:57:00Z",
+  "faixas": 44,
   "artistas": 12,
   "perfis_consultados": 12,
   "perfis_com_falha": 0,
   "faixas_por_artista": 5,
   "novos_artistas": [],
   "novas_faixas": [],
-  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/44936413372"
+  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/45057896024"
 }
