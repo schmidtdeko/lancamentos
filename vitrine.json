@@ -1,5 +1,16 @@
 [
   {
+    "artista": "Wes",
+    "avatar": "https://i1.sndcdn.com/avatars-tcwr1ZSfCVHygscv-MBU2RQ-large.jpg",
+    "perfil": "https://soundcloud.com/wesley-lachouski",
+    "titulo": "Kings of Leon - Use Somebody (Wes edit) [Supported by Greggio]",
+    "url": "https://soundcloud.com/wesley-lachouski/kings-of-leon-use-somebody-wes",
+    "capa": "https://i1.sndcdn.com/artworks-gzHzIn6Iqwvt4iFZ-t0O2cQ-large.png",
+    "data": "2026-11-25",
+    "duracao": 384046,
+    "genero": ""
+  },
+  {
     "artista": "Crunchy",
     "avatar": "https://i1.sndcdn.com/avatars-iFNZdUWKpXG7BVzK-zpyQYw-large.jpg",
     "perfil": "https://soundcloud.com/renan-rebou-as",
@@ -404,17 +415,6 @@
     "capa": "https://i1.sndcdn.com/artworks-vYyoZq7J3Qo0WcI6-rOfA1w-large.png",
     "data": "2025-08-02",
     "duracao": 4930046,
-    "genero": "House"
-  },
-  {
-    "artista": "Wes",
-    "avatar": "https://i1.sndcdn.com/avatars-tcwr1ZSfCVHygscv-MBU2RQ-large.jpg",
-    "perfil": "https://soundcloud.com/wesley-lachouski",
-    "titulo": "Wes @ Casa Milbratz, Gaspar/SC",
-    "url": "https://soundcloud.com/wesley-lachouski/wes-after-milbratz-teste",
-    "capa": "https://i1.sndcdn.com/artworks-2gye5KiclgyDRAIT-BK62cQ-large.jpg",
-    "data": "2025-06-13",
-    "duracao": 5360883,
     "genero": "House"
   },
   {

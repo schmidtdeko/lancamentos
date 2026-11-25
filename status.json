@@ -1,11 +1,17 @@
 {
-  "atualizado_em": "2026-11-24T21:50:57Z",
+  "atualizado_em": "2026-11-25T20:57:47Z",
   "faixas": 44,
   "artistas": 12,
   "perfis_consultados": 12,
   "perfis_com_falha": 0,
   "faixas_por_artista": 5,
   "novos_artistas": [],
-  "novas_faixas": [],
-  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/45495124561"
+  "novas_faixas": [
+    {
+      "artista": "Wes",
+      "titulo": "Kings of Leon - Use Somebody (Wes edit) [Supported by Greggio]",
+      "url": "https://soundcloud.com/wesley-lachouski/kings-of-leon-use-somebody-wes"
+    }
+  ],
+  "execucao": "https://github.com/schmidtdeko/lancamentos/actions/runs/45699858260"
 }
